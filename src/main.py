@@ -26,6 +26,10 @@ def main():
     with open('config.json') as f: 
         config = json.load(f)
 
+    if config["model"] == "" or config["api_key"] == "":
+        print("Please add parameters in config.json.")
+        sys.exit()
+
     process = subprocess.Popen(
         ["python3", "src/zsh_shell.py"],
         env=env,               
